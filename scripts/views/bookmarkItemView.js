@@ -35,14 +35,8 @@ export default Backbone.View.extend({
   },
   
   deleteBookmark: function(e) {
-    e.preventDefault();
-    var title = this.$('.bookmark-title').val();
-    var url = this.$('.boorkmark-url').val();
-    this.model.destroy({
-      title: title,
-      url: url
-    });
-    console.log('cancel', this.model);
+    this.model.destroy();
+    console.log('delete', this.model);
   }
   
 });
