@@ -5,6 +5,7 @@ export default Backbone.View.extend({
   
   events: {
     'click .bookmark-edit-button': 'editBookmark',
+    'click .bookmark-delete-button': 'deleteBookmark',
     'submit .bookmark-edit-form': 'saveBookmark',
     'reset .bookmark-edit-form': 'cancelEditBookmark'
   },
@@ -15,7 +16,7 @@ export default Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html(this.template(this.model));
+    this.$el.html(this.template(this.model.toJSON()));
   },
   
   editBookmark: function(e) {
@@ -26,14 +27,21 @@ export default Backbone.View.extend({
     e.preventDefault();
     var title = this.$('.bookmark-title').val();
     var url = this.$('.bookmark-url').val();
-    this.model.set({
+    this.model.save({
       title: title,
       url: url
     });
+//    console.log(title, url, this.model);
   },
   
-  cancelEditBookmark: function(e) {
+  deleteBookmark: function(e) {
     e.preventDefault();
+    var title = this.$('.bookmark-title').val();
+    var url = this.$('.boorkmark-url').val();
+    this.model.destroy({
+      title: title,
+      url: url
+    });
     console.log('cancel', this.model);
   }
   

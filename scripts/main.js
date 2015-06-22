@@ -9,15 +9,11 @@ import './ajax-config';
      var bookmarks = new BookmarkItemCollection();
      
      bookmarks.fetch().then(function(collection){
-      var bookmarkCollection = collection.results;
-      var listView = new BookmarkListView({collection: bookmarkCollection});
+      var listView = new BookmarkListView({collection: bookmarks});
       
       $('body').prepend(listView.el);
      });
-     
-     $.ajax('https://api.parse.com/1/classes/Bookmarks').then(function(response) {
-       console.log(response);
-     });
+
 
       
  
