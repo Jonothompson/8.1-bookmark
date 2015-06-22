@@ -4,7 +4,9 @@ export default Backbone.View.extend({
   tagName: 'li',
   
   events: {
-    'click .bookmark-edit': 'editBookmark'
+    'click .bookmark-edit-button': 'editBookmark',
+    'submit .bookmark-edit-form': 'saveBookmark',
+    'reset .bookmark-edit-form': 'cancelEditBookmark'
   },
 
   initialize: function(){
@@ -16,7 +18,17 @@ export default Backbone.View.extend({
   },
   
   editBookmark: function(e) {
-    console.log('hello');
+    console.log(this.model.toJSON());
+  },
+  
+  saveBookmark: function(e) {
+    e.preventDefault();
+    console.log('save', this.model.toJSON());
+  },
+  
+  cancelEditBookmark: function(e) {
+    e.preventDefault();
+    console.log('cancel', this.model.toJSON());
   }
   
 });
