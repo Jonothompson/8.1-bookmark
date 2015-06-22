@@ -1,4 +1,6 @@
 import BookmarkListView from './views/bookmarkListView';
+import './ajax-config';
+
  (function(){
    'use strict';
  
@@ -8,6 +10,10 @@ import BookmarkListView from './views/bookmarkListView';
        {title: "Twitter", url: "http://twitter.com"},
        {title: "Cool", url: "http://cool.com"},
      ]);
+     
+     $.ajax('https://api.parse.com/1/classes/Bookmarks').then(function(response) {
+       console.log(response);
+     });
  
     var listView = new BookmarkListView({collection: bookmarks});
     $('body').prepend(listView.el);

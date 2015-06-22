@@ -11,6 +11,7 @@ export default Backbone.View.extend({
 
   initialize: function(){
     this.render();
+    this.listenTo(this.model, 'change', this.render);
   },
 
   render: function(){
@@ -23,7 +24,12 @@ export default Backbone.View.extend({
   
   saveBookmark: function(e) {
     e.preventDefault();
-    console.log('save', this.model.toJSON());
+    var title = this.$('.bookmark-title').val();
+    var url = this.$('.bookmark-url').val();
+    this.model.set({
+      title: title,
+      url: url
+    });
   },
   
   cancelEditBookmark: function(e) {
