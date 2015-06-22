@@ -4,7 +4,9 @@ export default Backbone.View.extend({
   tagName: 'ul',
 
   initialize: function(){
+    console.log(this.collection);
     this.render();
+
   },
 
   render: function(){

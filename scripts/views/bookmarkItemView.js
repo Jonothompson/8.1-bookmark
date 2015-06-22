@@ -15,7 +15,7 @@ export default Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html(this.template(this.model.toJSON()));
+    this.$el.html(this.template(this.model));
   },
   
   editBookmark: function(e) {
@@ -34,7 +34,7 @@ export default Backbone.View.extend({
   
   cancelEditBookmark: function(e) {
     e.preventDefault();
-    console.log('cancel', this.model.toJSON());
+    console.log('cancel', this.model);
   }
   
 });

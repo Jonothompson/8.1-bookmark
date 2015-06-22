@@ -6,4 +6,4 @@ var BookmarkItemCollection = Backbone.Collection.extend({
 	}
 });
 
-export default {BookmarkCollection};
+export default {BookmarkItemCollection};
