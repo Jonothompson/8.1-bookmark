@@ -1,11 +1,13 @@
-<p>{{title}} - {{url}}</p>
+<h2>{{title}}</h2>
+<a href="{{url}}">{{url}}</a>
 
-<form class="bookmark-edit-form">
+<button class="bookmark-edit-button">Edit</button>
+<button class="bookmark-delete-button">Delete</button>
+
+<form class="bookmark-edit-form hidden">
 		<input class="bookmark-title" type="text" value="{{title}}">
 		<input class="bookmark-url" type="text" value="{{url}}">
 		<input type="reset" value="cancel">
 		<input type="submit" value="save">
 </form>
 
-<button class="bookmark-edit-button">Edit</button>
-<button class="bookmark-delete-button">Delete</button>

@@ -7,7 +7,7 @@ export default Backbone.View.extend({
     'click .bookmark-edit-button': 'editBookmark',
     'click .bookmark-delete-button': 'deleteBookmark',
     'submit .bookmark-edit-form': 'saveBookmark',
-    'reset .bookmark-edit-form': 'cancelEditBookmark'
+    'reset .bookmark-edit-form': 'cancelEdit'
   },
 
   initialize: function(){
@@ -20,7 +20,7 @@ export default Backbone.View.extend({
   },
   
   editBookmark: function(e) {
-    console.log(this.model.toJSON());
+    this.$('.bookmark-edit-form').show();
   },
   
   saveBookmark: function(e) {
@@ -31,12 +31,15 @@ export default Backbone.View.extend({
       title: title,
       url: url
     });
-//    console.log(title, url, this.model);
+    this.$('.bookmark-edit-form').hide();
   },
   
   deleteBookmark: function(e) {
     this.model.destroy();
-    console.log('delete', this.model);
+  },
+  
+  cancelEdit: function(e) {
+    this.$('.bookmark-edit-form').hide();
   }
   
 });
