@@ -9,7 +9,7 @@ $blue: #477dca;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
-$very-light-gray: #fafafa;
+$very-light-gray: #DDDDDD;
 
 $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
@@ -22,4 +22,56 @@ body {
 
 .hidden {
   display: none;
+}
+
+button {
+  border-radius: 5px;
+}
+
+.addItem {
+  background-color: #717D8C;
+  @include span-columns(6);
+  @include shift(1);
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 25px;
+  border-left: 1px solid #2F343A;
+  border-top: 1px solid #2F343A;
+  border-right: 1px solid #2F343A;
+  border-bottom: 10px solid #41AAC4;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.appContainer {
+  background-color: #717D8C;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  @include span-columns(6);
+  @include shift(1);
+  padding-right: 40px;
+  border-left: 1px solid #2F343A;
+  border-bottom: 1px solid #2F343A;
+  border-right: 1px solid #2F343A;
+  
+  
+  ul {
+    list-style: none;
+  }
+  
+  h2 {
+    color:  #80CEB9;
+  }
+  
+  hr {
+    color:  #BDB69C;
+  }
+  
+  a {
+    display: block;
+    text-decoration: none;
+    color:  #41AAC4;
+    margin-bottom: 15px;
+  }
 }

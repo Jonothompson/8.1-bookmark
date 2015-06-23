@@ -1,4 +1,5 @@
 import BookmarkListView from './views/bookmarkListView';
+import AddBookmarkItemView from './views/addBookmarkItem';
 import {BookmarkItemCollection} from './models/bookmarkItemCollection'; 
 import './ajax-config';
 
@@ -6,17 +7,12 @@ import './ajax-config';
    'use strict';
  
    $(document).ready(function(){
-     var bookmarks = new BookmarkItemCollection();
-     
+     var bookmarks = new BookmarkItemCollection(); 
      bookmarks.fetch().then(function(collection){
       var listView = new BookmarkListView({collection: bookmarks});
-      
-      $('body').prepend(listView.el);
+      var addItemView = new AddBookmarkItemView({collection: bookmarks});
+      $('.appContainer').html(listView.el);
+      $('.addItem').html(addItemView.el);
      });
-
-
-      
- 
-
    });
  })();
